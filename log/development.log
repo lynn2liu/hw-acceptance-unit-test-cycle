@@ -393,3 +393,58 @@ Processing by MoviesController#index as HTML
   [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
   Rendered movies/index.html.haml within layouts/application (3.7ms)
 Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 165.91.12.5 at 2019-10-24 21:37:10 +0000
+
+
+Started GET "/movies" for 165.91.12.5 at 2019-10-24 21:37:10 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://997d4dc4257a48f48ad7cffd4ab1c4e8.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 24ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 165.91.12.5 at 2019-10-24 21:37:11 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (17.0ms)
+Completed 200 OK in 145ms (Views: 140.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movies/new" for 165.91.12.5 at 2019-10-24 21:37:19 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (8.6ms)
+Completed 200 OK in 16ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 165.91.12.5 at 2019-10-24 21:39:11 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1jsTVwoCu5XP6tenbexEGtdljRhySLwjvaV0yBKWXkn7w34BoEvbn8Cu9UteNDq1FzjfU0ZF7mNE9KqHNAVwfw==", "movie"=>{"title"=>"Joker", "rating"=>"R", "release_date(1i)"=>"2019", "release_date(2i)"=>"10", "release_date(3i)"=>"4", "director"=>"Todd Phillips"}, "commit"=>"Save Changes"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "director", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Joker"], ["rating", "R"], ["director", "Todd Phillips"], ["release_date", "2019-10-04 00:00:00.000000"], ["created_at", "2019-10-24 21:39:11.059116"], ["updated_at", "2019-10-24 21:39:11.059116"]]
+  [1m[35m (4.7ms)[0m  commit transaction
+Redirected to https://997d4dc4257a48f48ad7cffd4ab1c4e8.vfs.cloud9.us-east-2.amazonaws.com/movies
+Completed 302 Found in 10ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/movies" for 165.91.12.5 at 2019-10-24 21:39:11 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://997d4dc4257a48f48ad7cffd4ab1c4e8.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 165.91.12.5 at 2019-10-24 21:39:11 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 165.91.12.5 at 2019-10-24 21:39:17 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.2ms)
