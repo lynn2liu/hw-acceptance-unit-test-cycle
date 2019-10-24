@@ -15,16 +15,20 @@ module NavigationHelpers
 
     when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
     
+     # Added a path for 'edit page for a movie'
+    # Example:
+    #   When I go to the edit page for "Alien"
     when /^the edit page for "(.*)"$/
-      movie_id = Movie.find_by(title: $1).id
-      edit_movie_path(movie_id)
-    
-    when /^the details page for "(.+)"$/
-      movie = Movie.find_by(title: $1)
-      movie_path(movie)
-      
-    when /^the new page$/
-      new_movie_path
+      edit_movie_path(Movie.find_by_title($1))
+
+    # Added a path for 'the details page for a movie'
+    # Example:
+    # => "Given I am on the details page for "Star Wars""
+    when /^the details page for "(.*)"$/
+      movie_path(Movie.find_by_title($1))
+
+    when /^the Similar Movies page for "(.*)"$/
+      similar_movie_path(Movie.find_by_title($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
@@ -32,8 +36,7 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
     
-    when /^the Similar Movies page for "(.+)"/
-      search_similar_movies_path($1)
+    
 
     else
       begin

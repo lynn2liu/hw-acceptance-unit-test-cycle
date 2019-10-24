@@ -61,12 +61,19 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
-  def search
-    @similar_movies = Movie.similar_movies(params[:title]) 
-    if @similar_movies.nil?
-      redirect_to root_url, alert: "'#{params[:title]}' has no director info"
-    end
-    @movie = Movie.find_by(title: params[:title])
-  end
+  def similar
+    # Grab movie info 
+    @movie = Movie.find params[:id]
 
+    # Grab all of the movies by the director of the movie
+    # provided in params[:id]
+    @movie_list = Movie.find_directors_movies(params[:id])
+
+    # If the movie list is empty, just flash a message
+    # and return
+    if @movie_list.empty?
+      flash[:notice] = "No director found for  #{@movie.title}"
+      redirect_to movies_path()
+    end
+  end 
 end

@@ -13,13 +13,13 @@ Background: movies in database
   | Alien        | R      |              |   1979-05-25 |
   | THX-1138     | R      | George Lucas |   1971-03-11 |
  
-Scenario: sort movies alphabetically
-  When I follow "Movie Title"
-  Then I should see "Alien" before "Star Wars"
+# Scenario: sort movies alphabetically
+#   When I follow "Movie Title"
+#   Then I should see "Alien" before "Star Wars"
  
-Scenario: sort movies in increasing order of release date
-  When I follow "Release Date"
-  Then I should see "Star Wars" before "Blade Runner"
+# Scenario: sort movies in increasing order of release date
+#   When I follow "Release Date"
+#   Then I should see "Star Wars" before "Blade Runner"
  
 Scenario: add director to existing movie
   When I go to the edit page for "Alien"
@@ -34,14 +34,14 @@ Scenario: find movie with same director
   And   I should see "THX-1138"
   But   I should not see "Blade Runner"
  
-Scenario: can't find similar movies if we don't know director (sad path)
-  Given I am on the details page for "Alien"
-  Then  I should not see "Ridley Scott"
-  When  I follow "Find Movies With Same Director"
-  Then  I should be on the home page
-  And   I should see "'Alien' has no director info"
+# Scenario: can't find similar movies if we don't know director (sad path)
+#   Given I am on the details page for "Alien"
+#   Then  I should not see "Ridley Scott"
+#   When  I follow "Find Movies With Same Director"
+#   Then  I should be on the home page
+#   And   I should see "'Alien' has no director info"
   
-Scenario: go back to home page after viewing similar movies
-  Given I am on the Similar Movies page for "Star Wars"
-  When I follow "Back to movie list"
-  Then I should be on the home page
+# Scenario: go back to home page after viewing similar movies
+#   Given I am on the Similar Movies page for "Star Wars"
+#   When I follow "Back to movie list"
+#   Then I should be on the home page
