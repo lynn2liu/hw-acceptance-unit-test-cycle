@@ -35,7 +35,7 @@ Scenario: can't find similar movies if we don't know director (sad path)
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
   
-# Scenario: go back to home page after viewing similar movies
-#   Given I am on the Similar Movies page for "Star Wars"
-#   When I follow "Back to movie list"
-#   Then I should be on the home page
+Scenario: go back to home page after viewing similar movies
+  Given I am on the Similar Movies page for "Star Wars"
+  When I follow "Back to movie list"
+  Then I should be on the home page

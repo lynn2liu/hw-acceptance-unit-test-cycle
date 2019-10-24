@@ -39,3 +39,8 @@ Scenario: all ratings selected
   When I check the following ratings: PG, R, G, PG-13
   And I press "ratings_submit"
   Then I should see all the movies
+
+Scenario: no ratings selected
+  When I uncheck the following ratings: PG, R, G, PG-13, NC-17
+  And I press "ratings_submit"
+  Then I should see all the movies
